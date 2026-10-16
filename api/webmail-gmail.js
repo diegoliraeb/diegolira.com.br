@@ -1,3 +1,4 @@
+import {mailSearch,senderDomain} from '../lib/webmail/search.js';
 import {body,cookie,digest,failure,gmailAccount,json,key,production,publicUrl,rateLimit,redis,safeError,sameOrigin,seal,unseal} from '../lib/webmail/core.js';
 import {requireSession} from '../lib/webmail/session.js';
 import {accessToken,authorization,flowCookie,googleGet,parseMessage,random,ready,statuses} from '../lib/webmail/google.js';
@@ -25,10 +26,12 @@ export function createGmailHandler(store=redis){return async(req,res)=>{try{
   if(!label)throw failure(400,'Pasta inválida.');
   const pageToken=params.get('pageToken')||'';if(pageToken.length>2000)throw failure(400,'Página inválida.');
   const query=new URLSearchParams({maxResults:'20',labelIds:label,includeSpamTrash:'true'});if(pageToken)query.set('pageToken',pageToken);
+  let search;try{search=mailSearch(params.get('q')||'',params.get('domain')||'');}catch(e){throw failure(400,e.message);}
+  if(search.q)query.set('q',search.q);
   const token=await accessToken(account,store),list=await googleGet('messages?'+query,token);
   // Small bounded batches keep API traffic predictable; never persist message content.
   const messages=[];for(let i=0;i<(list.messages||[]).length;i+=5){messages.push(...await Promise.all(list.messages.slice(i,i+5).map(async m=>parseMessage(await googleGet(`messages/${m.id}?format=metadata&metadataHeaders=From&metadataHeaders=To&metadataHeaders=Subject`,token),account.id))));}
-  return json(res,200,{messages,nextPageToken:list.nextPageToken||null});
+  return json(res,200,{messages:search.domain?messages.filter(m=>senderDomain(m)===search.domain):messages,nextPageToken:list.nextPageToken||null});
  }
  if(req.method!=='POST'){res.setHeader('Allow','GET, POST');throw failure(405,'Método não permitido.');}
  sameOrigin(req);const input=await body(req,50000),account=gmailAccount(input.accountId);
