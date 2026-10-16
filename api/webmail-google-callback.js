@@ -17,7 +17,7 @@ export function createCallbackHandler(store=redis){return async(req,res)=>{
    const profile=await googleGet('profile',tokens.access_token);
    if(profile.emailAddress?.toLowerCase()!==account.email.toLowerCase()){outcome='wrong_account';}else{
     // Logout during the external consent flow must invalidate completion too.
-    const encrypted=seal({refreshToken:tokens.refresh_token,connectedAt:Date.now()},account.id);
+    const encrypted=seal({refreshToken:tokens.refresh_token,connectedAt:Date.now(),scopes:tokens.scope.split(' ')},account.id);
     const committed=await store('EVAL',"if redis.call('GET',KEYS[1])==ARGV[1] then redis.call('SET',KEYS[2],ARGV[2]); return 1 end; return 0",2,flow.sessionId,key('google',account.id),process.env.WEBMAIL_USERNAME,encrypted);
     if(committed!==1)throw new Error('Expired session');outcome='connected';
    }

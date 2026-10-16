@@ -1,6 +1,7 @@
 import {body,cookie,digest,failure,gmailAccount,json,key,production,publicUrl,rateLimit,redis,safeError,sameOrigin,seal,unseal} from '../lib/webmail/core.js';
 import {requireSession} from '../lib/webmail/session.js';
 import {accessToken,authorization,flowCookie,googleGet,parseMessage,random,ready,statuses} from '../lib/webmail/google.js';
+import {sendReply,headerAddresses} from '../lib/webmail/reply.js';
 export function createGmailHandler(store=redis){return async(req,res)=>{try{
  const current=await requireSession(req,store);
  await rateLimit('gmail:'+current.id,180,60,store);
@@ -11,7 +12,13 @@ export function createGmailHandler(store=redis){return async(req,res)=>{try{
   if(action==='message'){
    const id=params.get('id');if(!/^[a-zA-Z0-9_-]{1,100}$/.test(id||''))throw failure(400,'Mensagem inválida.');
    const token=await accessToken(account,store),message=await googleGet(`messages/${id}?format=full`,token);
-   return json(res,200,{message:parseMessage(message,account.id,true)});
+   const parsed=parseMessage(message,account.id,true);
+   let conversation=[];
+   if(params.get('conversation')==='true'&&/^[a-zA-Z0-9_-]{1,100}$/.test(message.threadId||'')){
+    const thread=await googleGet(`threads/${message.threadId}?format=full`,token);
+    conversation=(thread.messages||[]).sort((a,b)=>Number(a.internalDate)-Number(b.internalDate)).slice(-10).map(m=>parseMessage(m,account.id,true));
+   }
+   return json(res,200,{message:parsed,conversation,replyTo:headerAddresses(parsed.replyTo||parsed.email).join(', ')});
   }
   if(action!=='list')throw failure(400,'Ação inválida.');
   const label={inbox:'INBOX',sent:'SENT',spam:'SPAM',trash:'TRASH',starred:'STARRED',important:'IMPORTANT'}[params.get('folder')||'inbox'];
@@ -24,14 +31,18 @@ export function createGmailHandler(store=redis){return async(req,res)=>{try{
   return json(res,200,{messages,nextPageToken:list.nextPageToken||null});
  }
  if(req.method!=='POST'){res.setHeader('Allow','GET, POST');throw failure(405,'Método não permitido.');}
- sameOrigin(req);const input=await body(req),account=gmailAccount(input.accountId);
+ sameOrigin(req);const input=await body(req,50000),account=gmailAccount(input.accountId);
  if(input.action==='connect'){
   await rateLimit('connect:'+current.id,10,600,store);
   const state=random(),binding=random(),verifier=random();
-  const url=authorization(account,state,verifier);
+  const url=authorization(account,state,verifier,input.enableSending===true);
   await store('SET',key('oauth',state),seal({accountId:account.id,sessionId:current.id,binding:digest(binding),verifier},'oauth'),'EX',600);
   res.setHeader('Set-Cookie',cookie(flowCookie(production()),binding,600,'Lax'));
   return json(res,200,{url});
+ }
+ if(input.action==='reply'){
+  await rateLimit('send:'+current.id,10,60,store);
+  try{return json(res,200,await sendReply(account,input,store));}catch(error){if(error.uncertain)return json(res,error.status||503,{error:error.message,uncertain:true});throw error;}
  }
  if(input.action==='disconnect'){
   const saved=await store('GETDEL',key('google',account.id));let revoked=true;
