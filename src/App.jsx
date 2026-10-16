@@ -138,6 +138,7 @@ export default function App() {
         <Brand/>
         <nav id="main-navigation" className={menuOpen ? 'navigation is-open' : 'navigation'} aria-label={t.menu}>
           {['#sobre', '#atuacao', '#ebrothers', 'https://tiolira.com.br'].map((href, i) => <a key={href} href={href} {...(i === 3 ? external : {})} onClick={() => setMenuOpen(false)}>{t.nav[i]}{i === 3 && <ArrowUpRight size={13}/>}</a>)}
+          <a href="https://webmail.diegolira.com.br" {...external} onClick={() => setMenuOpen(false)}>Lira Mail<ArrowUpRight size={13}/></a>
           <a className="mobile-contact" href="#contato" onClick={() => setMenuOpen(false)}>{t.talk} <ArrowUpRight size={16}/></a>
         </nav>
         <div className="header-actions">

@@ -42,6 +42,17 @@ As fontes DM Sans e Manrope são carregadas do Google Fonts, com fallback sans-s
 
 ## Publicar
 
+### Lira Mail no subdomínio
+
+O menu inclui **Lira Mail**, direcionado a `https://webmail.diegolira.com.br`.
+O `vercel.json` serve a interface compilada de `public/webmail/` quando o hostname é esse subdomínio. O domínio principal continua servindo o site pessoal. A função `api/webmail-auth.js` valida o login no servidor.
+
+O código-fonte independente fica na pasta irmã `../lira-mail`. Para atualizá-lo nesta publicação, execute `pnpm export:site ../diegolira.com.br` a partir do projeto Lira Mail. Nunca edite o JavaScript compilado em `public/webmail/`.
+
+Antes de usar o login na Vercel, configure `WEBMAIL_USERNAME`, `WEBMAIL_PASSWORD_HASH`, `WEBMAIL_SESSION_SECRET` e `WEBMAIL_ACCOUNTS` nas variáveis de ambiente do projeto, a partir do arquivo privado `.env.local` do Lira Mail, e faça Redeploy. Sem configuração, o login permanece bloqueado. Senhas e segredos não estão neste repositório.
+
+O Lira Mail ainda usa mensagens fictícias, sugestões locais de IA e envio simulado. As contas cadastradas ainda precisam de autorização OAuth; nenhum monitoramento real está ativo.
+
 Configure o comando de build `pnpm build` e a pasta de saída `dist`. O domínio existente não foi alterado por este projeto.
 
 - **Vercel:** `vercel.json` fornece o fallback para as rotas de idioma.

@@ -1,3 +1,14 @@
 {
-  "rewrites": [{ "source": "/((?!assets/|favicon.svg|robots.txt|sitemap.xml).*)", "destination": "/index.html" }]
+  "rewrites": [
+    {
+      "source": "/((?!api/|webmail/).*)",
+      "has": [{ "type": "host", "value": "webmail.diegolira.com.br" }],
+      "destination": "/webmail/index.html"
+    },
+    { "source": "/((?!api/|assets/|favicon.svg|robots.txt|sitemap.xml|webmail/).*)", "destination": "/index.html" }
+  ],
+  "headers": [
+    { "source": "/webmail/(.*)", "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }, { "key": "X-Content-Type-Options", "value": "nosniff" }] },
+    { "source": "/api/webmail-auth", "headers": [{ "key": "Cache-Control", "value": "no-store" }] }
+  ]
 }
