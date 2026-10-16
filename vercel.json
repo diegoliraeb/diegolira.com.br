@@ -1,14 +1,39 @@
 {
-  "rewrites": [
+  "routes": [
     {
-      "source": "/((?!api/|webmail/).*)",
-      "has": [{ "type": "host", "value": "webmail.diegolira.com.br" }],
-      "destination": "/webmail/index.html"
+      "src": "/webmail/(.*)",
+      "headers": {
+        "X-Robots-Tag": "noindex, nofollow",
+        "X-Content-Type-Options": "nosniff"
+      },
+      "continue": true
     },
-    { "source": "/((?!api/|assets/|favicon.svg|robots.txt|sitemap.xml|webmail/).*)", "destination": "/index.html" }
-  ],
-  "headers": [
-    { "source": "/webmail/(.*)", "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }, { "key": "X-Content-Type-Options", "value": "nosniff" }] },
-    { "source": "/api/webmail-auth", "headers": [{ "key": "Cache-Control", "value": "no-store" }] }
+    {
+      "src": "/api/webmail-auth",
+      "headers": {
+        "Cache-Control": "no-store"
+      },
+      "continue": true
+    },
+    {
+      "src": "/((?!api/|webmail/).*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "webmail.diegolira.com.br"
+        }
+      ],
+      "dest": "/webmail/index.html",
+      "headers": {
+        "X-Robots-Tag": "noindex, nofollow"
+      }
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/((?!api/|assets/|favicon\\.svg|robots\\.txt|sitemap\\.xml|webmail/).*)",
+      "dest": "/index.html"
+    }
   ]
 }
