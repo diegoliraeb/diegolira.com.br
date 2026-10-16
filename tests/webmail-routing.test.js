@@ -21,6 +21,7 @@ test('webmail hostname serves Lira Mail while main domain serves portfolio',()=>
 test('authentication endpoints and application assets bypass SPA rewrites',()=>{
   for(const host of ['webmail.diegolira.com.br','diegolira.com.br']){
     assert.equal(destination(host,'/api/webmail-auth'),undefined);
+    assert.equal(destination(host,'/api/webmail-ai'),undefined);
     assert.equal(destination(host,'/webmail/assets/app.js'),undefined);
     assert.equal(destination(host,'/webmail/favicon.svg'),undefined);
   }
@@ -31,4 +32,5 @@ test('exported application has subpath-safe assets and a login backend',()=>{
   assert.ok(assets.length>=3);
   assets.forEach(path=>assert.ok(existsSync(new URL(`../public${path}`,import.meta.url))));
   assert.ok(existsSync(new URL('../api/webmail-auth.js',import.meta.url)));
+  assert.ok(existsSync(new URL('../api/webmail-ai.js',import.meta.url)));
 });
