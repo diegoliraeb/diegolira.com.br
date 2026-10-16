@@ -1,0 +1,76 @@
+export const languages = { pt: 'Português', en: 'English', es: 'Español', fr: 'Français', de: 'Deutsch' };
+
+export const content = {
+  pt: {
+    title: 'Diego Lira — Tecnologia e Inteligência Empresarial',
+    nav: ['Sobre', 'Atuação', 'Ebrothers', 'Loja 3D'], talk: 'Vamos conversar', skip: 'Ir para o conteúdo', menu: 'Menu de navegação', close: 'Fechar menu', language: 'Idioma',
+    eyebrow: 'TECNOLOGIA · GESTÃO · INTELIGÊNCIA', headline: ['Ideias conectadas.', 'Negócios', 'transformados.'],
+    intro: 'Sou Diego Lira, empreendedor e CEO da Ebrothers. Conecto estratégia, tecnologia e inteligência artificial para criar soluções reais.',
+    discover: 'Conheça a Ebrothers', role: 'Empreendedor · CEO da Ebrothers', scroll: 'Explore o próximo passo',
+    pillars: ['Estratégia', 'Tecnologia', 'Inteligência artificial', 'Resultados'],
+    aboutLabel: '01 / SOBRE MIM', aboutHeading: ['Visão de futuro.', 'Execução no presente.'],
+    about: 'Transformo desafios de negócios em soluções digitais. Minha atuação une visão empresarial, gestão e tecnologia para simplificar processos e abrir novas possibilidades.',
+    aboutMore: 'Minha trajetória é guiada pela busca de soluções inteligentes e pela criação de projetos que unem estratégia, tecnologia e resultado. Atuo com transformação digital, sistemas, websites, automações e inteligência artificial para ajudar empresas a trabalharem com mais eficiência e clareza.',
+    readMore: 'Mais sobre minha trajetória', readLess: 'Mostrar menos',
+    workLabel: '02 / ATUAÇÃO', workHeading: 'Tecnologia com propósito.', workIntro: 'Da ideia à operação. Soluções que fazem sentido para o seu negócio.',
+    services: [
+      ['IA aplicada', 'Inteligência para decisões e rotinas.', 'Automação de tarefas, integração de inteligência artificial e soluções que liberam tempo para o que realmente importa.', 'Conversar sobre IA'],
+      ['Sistemas', 'Soluções sob medida para sua operação.', 'Sistemas pensados para conectar informações, simplificar operações e acompanhar as necessidades de cada negócio.', 'Conversar sobre sistemas'],
+      ['Websites', 'Experiências digitais que conectam.', 'Sites com identidade, navegação intuitiva e foco em transformar sua presença digital em novas oportunidades.', 'Conversar sobre websites'],
+      ['Gestão', 'Processos claros. Negócios eficientes.', 'Visão estratégica, organização de processos e uso inteligente de dados para apoiar melhores decisões.', 'Conversar sobre gestão'],
+    ],
+    companyLabel: '03 / À FRENTE DA EBROTHERS', companyHeading: ['Inteligência empresarial', 'para negócios reais.'],
+    companyBody: 'Estratégia, desenvolvimento e IA para empresas em evolução. Na Ebrothers, conectamos tecnologia aos desafios reais do seu negócio.',
+    companyTags: ['Estratégia', 'Tecnologia', 'Inovação', 'Crescimento real'],
+    contactLabel: '04 / VAMOS CONECTAR', contactHeading: ['O próximo passo', 'começa com uma conversa.'],
+    contactBody: 'Uma ideia, um desafio ou uma nova possibilidade. Vamos transformar isso em algo real.', contactCta: 'Fale comigo no Instagram',
+    footer: 'Tecnologia com visão. Negócios com futuro.', top: 'Voltar ao topo', closeDetails: 'Fechar detalhes',
+  },
+  en: {
+    title: 'Diego Lira — Technology and Business Intelligence',
+    nav: ['About', 'Expertise', 'Ebrothers', '3D Store'], talk: 'Let’s talk', skip: 'Skip to content', menu: 'Navigation menu', close: 'Close menu', language: 'Language',
+    eyebrow: 'TECHNOLOGY · MANAGEMENT · INTELLIGENCE', headline: ['Connected ideas.', 'Businesses', 'transformed.'],
+    intro: 'I’m Diego Lira, entrepreneur and CEO of Ebrothers. I connect strategy, technology and artificial intelligence to create real solutions.',
+    discover: 'Discover Ebrothers', role: 'Entrepreneur · CEO of Ebrothers', scroll: 'Explore the next step',
+    pillars: ['Strategy', 'Technology', 'Artificial intelligence', 'Results'],
+    aboutLabel: '01 / ABOUT ME', aboutHeading: ['A vision for the future.', 'Action in the present.'],
+    about: 'I turn business challenges into digital solutions. My work brings together business insight, management and technology to simplify processes and open new possibilities.',
+    aboutMore: 'My journey is driven by the pursuit of intelligent solutions and projects that combine strategy, technology and results. I work with digital transformation, systems, websites, automation and artificial intelligence to help companies operate with greater efficiency and clarity.',
+    readMore: 'More about my journey', readLess: 'Show less', workLabel: '02 / EXPERTISE', workHeading: 'Technology with purpose.', workIntro: 'From idea to operation. Solutions that make sense for your business.',
+    services: [
+      ['Applied AI', 'Intelligence for decisions and routines.', 'Task automation, AI integration and solutions that free up time for what truly matters.', 'Let’s talk about AI'],
+      ['Systems', 'Solutions tailored to your operation.', 'Systems designed to connect information, simplify operations and meet the needs of each business.', 'Let’s talk about systems'],
+      ['Websites', 'Digital experiences that connect.', 'Websites with identity, intuitive navigation and a focus on turning your digital presence into opportunities.', 'Let’s talk about websites'],
+      ['Management', 'Clear processes. Efficient businesses.', 'Strategic thinking, organized processes and intelligent use of data to support better decisions.', 'Let’s talk about management'],
+    ],
+    companyLabel: '03 / LEADING EBROTHERS', companyHeading: ['Business intelligence', 'for real businesses.'], companyBody: 'Strategy, development and AI for evolving companies. At Ebrothers, we connect technology to your real business challenges.', companyTags: ['Strategy', 'Technology', 'Innovation', 'Real growth'],
+    contactLabel: '04 / LET’S CONNECT', contactHeading: ['The next step', 'starts with a conversation.'], contactBody: 'An idea, a challenge or a new possibility. Let’s turn it into something real.', contactCta: 'Talk to me on Instagram', footer: 'Technology with vision. Business with a future.', top: 'Back to top', closeDetails: 'Close details',
+  },
+  es: {
+    title: 'Diego Lira — Tecnología e Inteligencia Empresarial', nav: ['Sobre mí', 'Soluciones', 'Ebrothers', 'Tienda 3D'], talk: 'Hablemos', skip: 'Ir al contenido', menu: 'Menú de navegación', close: 'Cerrar menú', language: 'Idioma',
+    eyebrow: 'TECNOLOGÍA · GESTIÓN · INTELIGENCIA', headline: ['Ideas conectadas.', 'Negocios', 'transformados.'], intro: 'Soy Diego Lira, emprendedor y CEO de Ebrothers. Conecto estrategia, tecnología e inteligencia artificial para crear soluciones reales.', discover: 'Conoce Ebrothers', role: 'Emprendedor · CEO de Ebrothers', scroll: 'Explora el siguiente paso', pillars: ['Estrategia', 'Tecnología', 'Inteligencia artificial', 'Resultados'],
+    aboutLabel: '01 / SOBRE MÍ', aboutHeading: ['Visión de futuro.', 'Acción en el presente.'], about: 'Transformo desafíos empresariales en soluciones digitales. Mi trabajo une visión empresarial, gestión y tecnología para simplificar procesos y abrir nuevas posibilidades.', aboutMore: 'Mi trayectoria está guiada por la búsqueda de soluciones inteligentes y proyectos que unen estrategia, tecnología y resultados. Trabajo con transformación digital, sistemas, sitios web, automatización e inteligencia artificial para ayudar a las empresas a trabajar con mayor eficiencia y claridad.', readMore: 'Más sobre mi trayectoria', readLess: 'Mostrar menos',
+    workLabel: '02 / SOLUCIONES', workHeading: 'Tecnología con propósito.', workIntro: 'De la idea a la operación. Soluciones que tienen sentido para tu negocio.', services: [
+      ['IA aplicada', 'Inteligencia para decisiones y rutinas.', 'Automatización, integración de IA y soluciones que liberan tiempo para lo que importa.', 'Hablemos de IA'],
+      ['Sistemas', 'Soluciones a medida para tu operación.', 'Sistemas para conectar información, simplificar operaciones y acompañar las necesidades de cada negocio.', 'Hablemos de sistemas'],
+      ['Sitios web', 'Experiencias digitales que conectan.', 'Sitios con identidad, navegación intuitiva y enfoque en nuevas oportunidades.', 'Hablemos de sitios web'],
+      ['Gestión', 'Procesos claros. Negocios eficientes.', 'Visión estratégica, organización de procesos y uso inteligente de datos para mejores decisiones.', 'Hablemos de gestión'],
+    ], companyLabel: '03 / AL FRENTE DE EBROTHERS', companyHeading: ['Inteligencia empresarial', 'para negocios reales.'], companyBody: 'Estrategia, desarrollo e IA para empresas en evolución. En Ebrothers, conectamos la tecnología con los desafíos reales de tu negocio.', companyTags: ['Estrategia', 'Tecnología', 'Innovación', 'Crecimiento real'], contactLabel: '04 / CONECTEMOS', contactHeading: ['El siguiente paso', 'empieza con una conversación.'], contactBody: 'Una idea, un desafío o una nueva posibilidad. Hagamos algo real.', contactCta: 'Hablemos en Instagram', footer: 'Tecnología con visión. Negocios con futuro.', top: 'Volver arriba', closeDetails: 'Cerrar detalles',
+  },
+  fr: {
+    title: 'Diego Lira — Technologie et Intelligence d’Entreprise', nav: ['À propos', 'Expertise', 'Ebrothers', 'Boutique 3D'], talk: 'Discutons', skip: 'Aller au contenu', menu: 'Menu de navigation', close: 'Fermer le menu', language: 'Langue', eyebrow: 'TECHNOLOGIE · GESTION · INTELLIGENCE', headline: ['Idées connectées.', 'Entreprises', 'transformées.'], intro: 'Je suis Diego Lira, entrepreneur et PDG d’Ebrothers. Je relie stratégie, technologie et intelligence artificielle pour créer des solutions concrètes.', discover: 'Découvrir Ebrothers', role: 'Entrepreneur · PDG d’Ebrothers', scroll: 'Découvrez la suite', pillars: ['Stratégie', 'Technologie', 'Intelligence artificielle', 'Résultats'], aboutLabel: '01 / À PROPOS', aboutHeading: ['Une vision d’avenir.', 'L’action au présent.'], about: 'Je transforme les défis des entreprises en solutions numériques. Mon travail associe vision stratégique, gestion et technologie pour simplifier les processus et ouvrir de nouvelles possibilités.', aboutMore: 'Mon parcours est guidé par la recherche de solutions intelligentes et de projets qui allient stratégie, technologie et résultats. Je travaille sur la transformation numérique, les systèmes, les sites web, l’automatisation et l’intelligence artificielle pour aider les entreprises à gagner en efficacité et en clarté.', readMore: 'En savoir plus sur mon parcours', readLess: 'Voir moins', workLabel: '02 / EXPERTISE', workHeading: 'La technologie au service du sens.', workIntro: 'De l’idée à la mise en œuvre. Des solutions adaptées à votre entreprise.', services: [
+      ['IA appliquée', 'L’intelligence au quotidien.', 'Automatisation, intégration de l’IA et solutions qui libèrent du temps pour l’essentiel.', 'Parlons d’IA'],
+      ['Systèmes', 'Des solutions sur mesure.', 'Des systèmes pour connecter les informations et simplifier les opérations de chaque entreprise.', 'Parlons de systèmes'],
+      ['Sites web', 'Des expériences qui connectent.', 'Des sites à votre image, intuitifs et conçus pour créer de nouvelles opportunités.', 'Parlons de sites web'],
+      ['Gestion', 'Des processus clairs et efficaces.', 'Vision stratégique, organisation des processus et données pour éclairer vos décisions.', 'Parlons de gestion'],
+    ], companyLabel: '03 / À LA TÊTE D’EBROTHERS', companyHeading: ['L’intelligence d’entreprise', 'pour des défis concrets.'], companyBody: 'Stratégie, développement et IA pour les entreprises en évolution. Chez Ebrothers, nous relions la technologie à vos défis réels.', companyTags: ['Stratégie', 'Technologie', 'Innovation', 'Croissance réelle'], contactLabel: '04 / PRENONS CONTACT', contactHeading: ['La prochaine étape', 'commence par une conversation.'], contactBody: 'Une idée, un défi ou une nouvelle possibilité. Donnons-lui vie.', contactCta: 'Contactez-moi sur Instagram', footer: 'La technologie avec une vision. L’entreprise avec un avenir.', top: 'Retour en haut', closeDetails: 'Fermer les détails',
+  },
+  de: {
+    title: 'Diego Lira — Technologie und Business Intelligence', nav: ['Über mich', 'Expertise', 'Ebrothers', '3D-Shop'], talk: 'Sprechen wir', skip: 'Zum Inhalt', menu: 'Navigationsmenü', close: 'Menü schließen', language: 'Sprache', eyebrow: 'TECHNOLOGIE · MANAGEMENT · INTELLIGENZ', headline: ['Vernetzte Ideen.', 'Unternehmen', 'neu gedacht.'], intro: 'Ich bin Diego Lira, Unternehmer und CEO von Ebrothers. Ich verbinde Strategie, Technologie und künstliche Intelligenz zu konkreten Lösungen.', discover: 'Ebrothers entdecken', role: 'Unternehmer · CEO von Ebrothers', scroll: 'Den nächsten Schritt entdecken', pillars: ['Strategie', 'Technologie', 'Künstliche Intelligenz', 'Ergebnisse'], aboutLabel: '01 / ÜBER MICH', aboutHeading: ['Die Zukunft im Blick.', 'Heute handeln.'], about: 'Ich verwandle geschäftliche Herausforderungen in digitale Lösungen. Meine Arbeit verbindet unternehmerische Vision, Management und Technologie, um Prozesse zu vereinfachen und neue Möglichkeiten zu eröffnen.', aboutMore: 'Mein Weg ist geprägt von intelligenten Lösungen und Projekten, die Strategie, Technologie und Ergebnisse verbinden. Mit digitaler Transformation, Systemen, Websites, Automatisierung und künstlicher Intelligenz unterstütze ich Unternehmen dabei, effizienter und klarer zu arbeiten.', readMore: 'Mehr über meinen Werdegang', readLess: 'Weniger anzeigen', workLabel: '02 / EXPERTISE', workHeading: 'Technologie mit Sinn.', workIntro: 'Von der Idee bis zum Betrieb. Lösungen, die zu Ihrem Unternehmen passen.', services: [
+      ['Angewandte KI', 'Intelligenz für den Alltag.', 'Automatisierung, KI-Integration und Lösungen, die Zeit für das Wesentliche schaffen.', 'Über KI sprechen'],
+      ['Systeme', 'Maßgeschneiderte Lösungen.', 'Systeme, die Informationen verbinden und die Abläufe Ihres Unternehmens vereinfachen.', 'Über Systeme sprechen'],
+      ['Websites', 'Digitale Erlebnisse, die verbinden.', 'Individuelle Websites mit intuitiver Navigation, die neue Möglichkeiten eröffnen.', 'Über Websites sprechen'],
+      ['Management', 'Klare Prozesse. Effiziente Unternehmen.', 'Strategische Vision, organisierte Prozesse und intelligente Datennutzung für bessere Entscheidungen.', 'Über Management sprechen'],
+    ], companyLabel: '03 / AN DER SPITZE VON EBROTHERS', companyHeading: ['Business Intelligence', 'für echte Herausforderungen.'], companyBody: 'Strategie, Entwicklung und KI für Unternehmen im Wandel. Bei Ebrothers verbinden wir Technologie mit Ihren realen Herausforderungen.', companyTags: ['Strategie', 'Technologie', 'Innovation', 'Echtes Wachstum'], contactLabel: '04 / KONTAKT', contactHeading: ['Der nächste Schritt', 'beginnt mit einem Gespräch.'], contactBody: 'Eine Idee, eine Herausforderung oder eine neue Möglichkeit. Machen wir etwas daraus.', contactCta: 'Kontakt über Instagram', footer: 'Technologie mit Vision. Unternehmen mit Zukunft.', top: 'Nach oben', closeDetails: 'Details schließen',
+  },
+};
